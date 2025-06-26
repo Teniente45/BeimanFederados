@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		C8E9C6CD2E0D5D4200B16005 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = C8E9C6CC2E0D5D4200B16005 /* Reachability */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		C8E9C6952E0D59F900B16005 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -29,22 +33,9 @@
 		C8E9C69E2E0D59F900B16005 /* BeimanFederadosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeimanFederadosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		C8E9C6A62E0D59F900B16005 /* Exceptions for "BeimanFederados" folder in "BeimanFederados" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = C8E9C6822E0D59F700B16005 /* BeimanFederados */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		C8E9C6852E0D59F700B16005 /* BeimanFederados */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				C8E9C6A62E0D59F900B16005 /* Exceptions for "BeimanFederados" folder in "BeimanFederados" target */,
-			);
 			path = BeimanFederados;
 			sourceTree = "<group>";
 		};
@@ -65,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8E9C6CD2E0D5D4200B16005 /* Reachability in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +117,7 @@
 			);
 			name = BeimanFederados;
 			packageProductDependencies = (
+				C8E9C6CC2E0D5D4200B16005 /* Reachability */,
 			);
 			productName = BeimanFederados;
 			productReference = C8E9C6832E0D59F700B16005 /* BeimanFederados.app */;
@@ -208,6 +201,9 @@
 			);
 			mainGroup = C8E9C67A2E0D59F700B16005;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				C8E9C6CB2E0D5D4200B16005 /* XCRemoteSwiftPackageReference "Reachability.swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C8E9C6842E0D59F700B16005 /* Products */;
 			projectDirPath = "";
@@ -575,6 +571,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C8E9C6CB2E0D5D4200B16005 /* XCRemoteSwiftPackageReference "Reachability.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ashleymills/Reachability.swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C8E9C6CC2E0D5D4200B16005 /* Reachability */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C8E9C6CB2E0D5D4200B16005 /* XCRemoteSwiftPackageReference "Reachability.swift" */;
+			productName = Reachability;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C8E9C67B2E0D59F700B16005 /* Project object */;
 }

@@ -1,14 +1,7 @@
-//
-//  ContentView.swift
-//  BeimanFederados_iOs
-//
-//  Created by Juan López Marín on 24/6/25.
-//
-
 import SwiftUI
 import Reachability
 
-struct ContentView: View {
+struct PaginaPrincipalViewController: View {
     @State private var usuario: String = ""
     @State private var password: String = ""
     @State private var mostrarContrasena: Bool = false
@@ -89,6 +82,7 @@ struct ContentView: View {
         }
     }
 
+    // Maneja el proceso de login tras pulsar "Acceso"
     func handleLogin() {
         let trimmedUsuario = usuario.trimmingCharacters(in: .whitespaces)
         let trimmedPassword = password.trimmingCharacters(in: .whitespaces)
@@ -129,22 +123,18 @@ struct ContentView: View {
         }
     }
 
+    // Redirige al usuario a la pantalla de recuperación de contraseña
     func handleForgotPassword() {
         if let url = URL(string: BuildURLMovil.getForgotPassword()) {
             UIApplication.shared.open(url)
         }
     }
 
+    // Verifica si hay conexión a Internet disponible
     func isInternetAvailable() -> Bool {
         guard let reachability = try? Reachability() else {
             return false
         }
         return reachability.connection != .unavailable
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }

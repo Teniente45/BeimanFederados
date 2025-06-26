@@ -1,0 +1,580 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		C8E9C6952E0D59F900B16005 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C8E9C67B2E0D59F700B16005 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C8E9C6822E0D59F700B16005;
+			remoteInfo = BeimanFederados;
+		};
+		C8E9C69F2E0D59F900B16005 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C8E9C67B2E0D59F700B16005 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C8E9C6822E0D59F700B16005;
+			remoteInfo = BeimanFederados;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C8E9C6832E0D59F700B16005 /* BeimanFederados.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeimanFederados.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8E9C6942E0D59F900B16005 /* BeimanFederadosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeimanFederadosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8E9C69E2E0D59F900B16005 /* BeimanFederadosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeimanFederadosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		C8E9C6A62E0D59F900B16005 /* Exceptions for "BeimanFederados" folder in "BeimanFederados" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = C8E9C6822E0D59F700B16005 /* BeimanFederados */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		C8E9C6852E0D59F700B16005 /* BeimanFederados */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				C8E9C6A62E0D59F900B16005 /* Exceptions for "BeimanFederados" folder in "BeimanFederados" target */,
+			);
+			path = BeimanFederados;
+			sourceTree = "<group>";
+		};
+		C8E9C6972E0D59F900B16005 /* BeimanFederadosTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = BeimanFederadosTests;
+			sourceTree = "<group>";
+		};
+		C8E9C6A12E0D59F900B16005 /* BeimanFederadosUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = BeimanFederadosUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C8E9C6802E0D59F700B16005 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8E9C6912E0D59F900B16005 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8E9C69B2E0D59F900B16005 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C8E9C67A2E0D59F700B16005 = {
+			isa = PBXGroup;
+			children = (
+				C8E9C6852E0D59F700B16005 /* BeimanFederados */,
+				C8E9C6972E0D59F900B16005 /* BeimanFederadosTests */,
+				C8E9C6A12E0D59F900B16005 /* BeimanFederadosUITests */,
+				C8E9C6842E0D59F700B16005 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C8E9C6842E0D59F700B16005 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C8E9C6832E0D59F700B16005 /* BeimanFederados.app */,
+				C8E9C6942E0D59F900B16005 /* BeimanFederadosTests.xctest */,
+				C8E9C69E2E0D59F900B16005 /* BeimanFederadosUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C8E9C6822E0D59F700B16005 /* BeimanFederados */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8E9C6A72E0D59F900B16005 /* Build configuration list for PBXNativeTarget "BeimanFederados" */;
+			buildPhases = (
+				C8E9C67F2E0D59F700B16005 /* Sources */,
+				C8E9C6802E0D59F700B16005 /* Frameworks */,
+				C8E9C6812E0D59F700B16005 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				C8E9C6852E0D59F700B16005 /* BeimanFederados */,
+			);
+			name = BeimanFederados;
+			packageProductDependencies = (
+			);
+			productName = BeimanFederados;
+			productReference = C8E9C6832E0D59F700B16005 /* BeimanFederados.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C8E9C6932E0D59F900B16005 /* BeimanFederadosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8E9C6AC2E0D59F900B16005 /* Build configuration list for PBXNativeTarget "BeimanFederadosTests" */;
+			buildPhases = (
+				C8E9C6902E0D59F900B16005 /* Sources */,
+				C8E9C6912E0D59F900B16005 /* Frameworks */,
+				C8E9C6922E0D59F900B16005 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C8E9C6962E0D59F900B16005 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				C8E9C6972E0D59F900B16005 /* BeimanFederadosTests */,
+			);
+			name = BeimanFederadosTests;
+			packageProductDependencies = (
+			);
+			productName = BeimanFederadosTests;
+			productReference = C8E9C6942E0D59F900B16005 /* BeimanFederadosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C8E9C69D2E0D59F900B16005 /* BeimanFederadosUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8E9C6AF2E0D59F900B16005 /* Build configuration list for PBXNativeTarget "BeimanFederadosUITests" */;
+			buildPhases = (
+				C8E9C69A2E0D59F900B16005 /* Sources */,
+				C8E9C69B2E0D59F900B16005 /* Frameworks */,
+				C8E9C69C2E0D59F900B16005 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C8E9C6A02E0D59F900B16005 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				C8E9C6A12E0D59F900B16005 /* BeimanFederadosUITests */,
+			);
+			name = BeimanFederadosUITests;
+			packageProductDependencies = (
+			);
+			productName = BeimanFederadosUITests;
+			productReference = C8E9C69E2E0D59F900B16005 /* BeimanFederadosUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C8E9C67B2E0D59F700B16005 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					C8E9C6822E0D59F700B16005 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					C8E9C6932E0D59F900B16005 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = C8E9C6822E0D59F700B16005;
+					};
+					C8E9C69D2E0D59F900B16005 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = C8E9C6822E0D59F700B16005;
+					};
+				};
+			};
+			buildConfigurationList = C8E9C67E2E0D59F700B16005 /* Build configuration list for PBXProject "BeimanFederados" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C8E9C67A2E0D59F700B16005;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = C8E9C6842E0D59F700B16005 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C8E9C6822E0D59F700B16005 /* BeimanFederados */,
+				C8E9C6932E0D59F900B16005 /* BeimanFederadosTests */,
+				C8E9C69D2E0D59F900B16005 /* BeimanFederadosUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C8E9C6812E0D59F700B16005 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8E9C6922E0D59F900B16005 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8E9C69C2E0D59F900B16005 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C8E9C67F2E0D59F700B16005 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8E9C6902E0D59F900B16005 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8E9C69A2E0D59F900B16005 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C8E9C6962E0D59F900B16005 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C8E9C6822E0D59F700B16005 /* BeimanFederados */;
+			targetProxy = C8E9C6952E0D59F900B16005 /* PBXContainerItemProxy */;
+		};
+		C8E9C6A02E0D59F900B16005 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C8E9C6822E0D59F700B16005 /* BeimanFederados */;
+			targetProxy = C8E9C69F2E0D59F900B16005 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		C8E9C6A82E0D59F900B16005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BeimanFederados/BeimanFederados.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4NXQ7FZBLS;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BeimanFederados/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "desarrollo-iOs.BeimanFederados";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C8E9C6A92E0D59F900B16005 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BeimanFederados/BeimanFederados.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4NXQ7FZBLS;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BeimanFederados/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "desarrollo-iOs.BeimanFederados";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C8E9C6AA2E0D59F900B16005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 4NXQ7FZBLS;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C8E9C6AB2E0D59F900B16005 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 4NXQ7FZBLS;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C8E9C6AD2E0D59F900B16005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4NXQ7FZBLS;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "desarrollo-iOs.BeimanFederadosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BeimanFederados.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BeimanFederados";
+			};
+			name = Debug;
+		};
+		C8E9C6AE2E0D59F900B16005 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4NXQ7FZBLS;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "desarrollo-iOs.BeimanFederadosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BeimanFederados.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BeimanFederados";
+			};
+			name = Release;
+		};
+		C8E9C6B02E0D59F900B16005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4NXQ7FZBLS;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "desarrollo-iOs.BeimanFederadosUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BeimanFederados;
+			};
+			name = Debug;
+		};
+		C8E9C6B12E0D59F900B16005 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4NXQ7FZBLS;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "desarrollo-iOs.BeimanFederadosUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BeimanFederados;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C8E9C67E2E0D59F700B16005 /* Build configuration list for PBXProject "BeimanFederados" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8E9C6AA2E0D59F900B16005 /* Debug */,
+				C8E9C6AB2E0D59F900B16005 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8E9C6A72E0D59F900B16005 /* Build configuration list for PBXNativeTarget "BeimanFederados" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8E9C6A82E0D59F900B16005 /* Debug */,
+				C8E9C6A92E0D59F900B16005 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8E9C6AC2E0D59F900B16005 /* Build configuration list for PBXNativeTarget "BeimanFederadosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8E9C6AD2E0D59F900B16005 /* Debug */,
+				C8E9C6AE2E0D59F900B16005 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8E9C6AF2E0D59F900B16005 /* Build configuration list for PBXNativeTarget "BeimanFederadosUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8E9C6B02E0D59F900B16005 /* Debug */,
+				C8E9C6B12E0D59F900B16005 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C8E9C67B2E0D59F700B16005 /* Project object */;
+}

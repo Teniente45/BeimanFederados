@@ -33,9 +33,22 @@
 		C8E9C69E2E0D59F900B16005 /* BeimanFederadosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeimanFederadosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		C8E9C6F02E0D623E00B16005 /* Exceptions for "BeimanFederados" folder in "BeimanFederados" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = C8E9C6822E0D59F700B16005 /* BeimanFederados */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		C8E9C6852E0D59F700B16005 /* BeimanFederados */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				C8E9C6F02E0D623E00B16005 /* Exceptions for "BeimanFederados" folder in "BeimanFederados" target */,
+			);
 			path = BeimanFederados;
 			sourceTree = "<group>";
 		};

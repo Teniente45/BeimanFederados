@@ -17,27 +17,55 @@ struct PaginaSecundariaView: View {
     @State private var webViewReloadTrigger = UUID()
     @Binding var mostrarLogin: Bool
     @State private var mostrandoReconectando = false
+    @State private var mostrarSolapa = true
+    @State private var webViewReferencia = WKWebView()
 
     var body: some View {
         ZStack {
             WebViewWrapper(
                 reloadTrigger: webViewReloadTrigger,
                 mostrarLogin: $mostrarLogin,
-                mostrandoReconectando: $mostrandoReconectando
+                mostrandoReconectando: $mostrandoReconectando,
+                webView: $webViewReferencia
             )
             .padding(.top, 30)
             .padding(.bottom, 56)
 
-            if mostrandoReconectando {
-                Color.white.opacity(0.85)
-                    .edgesIgnoringSafeArea(.all)
-                VStack(spacing: 12) {
-                    ProgressView()
-                    Text("Reconectando...")
-                        .font(.headline)
-                        .foregroundColor(.gray)
-                }
+            if mostrarSolapa {
+                SolapaWebView(
+                    webView: webViewReferencia,
+                    onClose: { mostrarSolapa = false }
+                )
+                .zIndex(2)
             }
+
+            VStack {
+                Spacer()
+                Button(action: {
+                    mostrarSolapa = true
+                }) {
+                    Image(systemName: "square.grid.2x2.fill")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                        .padding()
+                }
+                .background(Color.white)
+                .clipShape(Circle())
+                .shadow(radius: 4)
+                .padding(.bottom, 20)
+            }
+            .zIndex(1)
+
+            // if mostrandoReconectando {
+            //     Color.white.opacity(0.85)
+            //         .edgesIgnoringSafeArea(.all)
+            //     VStack(spacing: 12) {
+            //         ProgressView()
+            //         Text("Reconectando...")
+            //             .font(.headline)
+            //             .foregroundColor(.gray)
+            //     }
+            // }
         }
         .background(Color.white)
         .ignoresSafeArea(.all, edges: .bottom)
@@ -81,6 +109,7 @@ struct WebViewWrapper: UIViewRepresentable {
     let reloadTrigger: UUID
     @Binding var mostrarLogin: Bool
     @Binding var mostrandoReconectando: Bool
+    @Binding var webView: WKWebView
 
     func makeUIView(context: Context) -> WKWebView {
         print("⚙️ Configurando WKWebView")
@@ -94,7 +123,7 @@ struct WebViewWrapper: UIViewRepresentable {
         contentController.add(context.coordinator, name: "loginStatus")
         config.userContentController = contentController
 
-        let webView = WKWebView(frame: .zero, configuration: config)
+        webView = WKWebView(frame: .zero, configuration: config)
         webView.navigationDelegate = context.coordinator
         webView.uiDelegate = context.coordinator
 

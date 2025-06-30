@@ -28,7 +28,7 @@ struct PaginaSecundariaView: View {
                 mostrandoReconectando: $mostrandoReconectando,
                 webView: $webViewReferencia
             )
-            .padding(.top, 30)
+            .padding(.top, 0)
             .padding(.bottom, 56)
 
             if mostrarSolapa {
@@ -68,7 +68,7 @@ struct PaginaSecundariaView: View {
             // }
         }
         .background(Color.white)
-        .ignoresSafeArea(.all, edges: .bottom)
+        .ignoresSafeArea(.container, edges: [.top, .bottom])
         .onAppear {
             print("✅ PaginaSecundariaView - onAppear ejecutado")
             iniciarTimerDeSesion()
@@ -77,6 +77,7 @@ struct PaginaSecundariaView: View {
             timer?.invalidate()
             print("🔄 PaginaSecundariaView - onDisappear: temporizador detenido")
         }
+        .navigationBarBackButtonHidden(true)
     }
 
     // Inicia un temporizador que cierra la sesión tras el tiempo definido

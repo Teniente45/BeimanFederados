@@ -14,15 +14,15 @@ struct SolapaWebView: View {
 
     var body: some View {
         ScrollView {
-            VStack(spacing: 20) {
+            VStack(spacing: 5) {
                 if let logoCliente = ImagenesMovil.logoCliente {
                     logoCliente
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 280, height: 280)
+                        .frame(width: 280, height: 150)
                 }
 
-                HStack(alignment: .top, spacing: 20) {
+                HStack(alignment: .top, spacing: 30) {
                     columnaIconos([
                         ("Mis Citas", "mis_citas", BuildURLMovil.verCita()),
                         ("Mis Datos", "mis_datos", BuildURLMovil.verMisDatos()),
@@ -46,6 +46,7 @@ struct SolapaWebView: View {
             }
             .padding()
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.white)
         .zIndex(2)
     }

@@ -19,56 +19,81 @@ struct PaginaSecundariaView: View {
     @State private var mostrandoReconectando = false
     @State private var mostrarSolapa = true
     @State private var webViewReferencia = WKWebView()
+    @State private var showLogoutDialog = false
+    let cUsuario: String = AuthManager.shared.getUserCredentials().usuario ?? ""
 
     var body: some View {
-        ZStack {
+        VStack(spacing: 0) {
+            ZStack {
+                Color(red: 0xE2 / 255.0, green: 0xE4 / 255.0, blue: 0xE5 / 255.0)
+
+                HStack {
+                    // Sección izquierda: avatar + nombre
+                    HStack(spacing: 8) {
+                        Image("cliente32")
+                            .resizable()
+                            .frame(width: 24, height: 24)
+
+                        Text(cUsuario.uppercased())
+                            .foregroundColor(Color(red: 0.46, green: 0.60, blue: 0.71)) // Color(0xFF7599B6)
+                            .font(.system(size: 14, weight: .medium))
+                    }
+
+                    Spacer()
+
+                    // Sección derecha: botón cerrar sesión
+                    Button(action: {
+                        showLogoutDialog = true
+                    }) {
+                        Image("ic_cerrar32")
+                            .resizable()
+                            .frame(width: 24, height: 24)
+                    }
+                }
+                .padding(.horizontal, 12)
+                .frame(height: 30)
+            }
+            .frame(height: 30)
+
             WebViewWrapper(
                 reloadTrigger: webViewReloadTrigger,
                 mostrarLogin: $mostrarLogin,
                 mostrandoReconectando: $mostrandoReconectando,
                 webView: $webViewReferencia
             )
-            .padding(.top, 0)
+            .frame(maxHeight: .infinity)
             .padding(.bottom, 56)
-
-            if mostrarSolapa {
-                SolapaWebView(
-                    webView: webViewReferencia,
-                    onClose: { mostrarSolapa = false }
-                )
-                .zIndex(2)
-            }
-
-            VStack {
-                Spacer()
-                Button(action: {
-                    mostrarSolapa = true
-                }) {
-                    Image(systemName: "square.grid.2x2.fill")
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                        .padding()
-                }
-                .background(Color.white)
-                .clipShape(Circle())
-                .shadow(radius: 4)
-                .padding(.bottom, 20)
-            }
-            .zIndex(1)
-
-            // if mostrandoReconectando {
-            //     Color.white.opacity(0.85)
-            //         .edgesIgnoringSafeArea(.all)
-            //     VStack(spacing: 12) {
-            //         ProgressView()
-            //         Text("Reconectando...")
-            //             .font(.headline)
-            //             .foregroundColor(.gray)
-            //     }
-            // }
         }
+        .zIndex(0)
         .background(Color.white)
-        .ignoresSafeArea(.container, edges: [.top, .bottom])
+        .overlay(
+            Group {
+                if mostrarSolapa {
+                    SolapaWebView(
+                        webView: webViewReferencia,
+                        onClose: { mostrarSolapa = false }
+                    )
+                    .zIndex(2)
+                }
+
+                VStack {
+                    Spacer()
+                    Button(action: {
+                        mostrarSolapa = true
+                    }) {
+                        Image(systemName: "square.grid.2x2.fill")
+                            .resizable()
+                            .frame(width: 40, height: 40)
+                            .padding()
+                    }
+                    .background(Color.white)
+                    .clipShape(Circle())
+                    .shadow(radius: 4)
+                    .padding(.bottom, 20)
+                }
+                .zIndex(1)
+            }
+        )
         .onAppear {
             print("✅ PaginaSecundariaView - onAppear ejecutado")
             iniciarTimerDeSesion()

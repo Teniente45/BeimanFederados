@@ -8,47 +8,92 @@
 import SwiftUI
 import WebKit
 
+struct CabeceraUsuarioView: View {
+    let cUsuario: String
+    @Binding var showLogoutDialog: Bool
+
+    var body: some View {
+        ZStack {
+            Color(red: 0xE2 / 255.0, green: 0xE4 / 255.0, blue: 0xE5 / 255.0)
+
+            HStack {
+                HStack(spacing: 8) {
+                    Image("cliente32")
+                        .resizable()
+                        .frame(width: 24, height: 24)
+
+                    Text(cUsuario.uppercased())
+                        .foregroundColor(Color(red: 0.46, green: 0.60, blue: 0.71))
+                        .font(.system(size: 14, weight: .medium))
+                }
+
+                Spacer()
+
+                Button(action: {
+                    showLogoutDialog = true
+                }) {
+                    Image("ic_cerrar32")
+                        .resizable()
+                        .frame(width: 24, height: 24)
+                }
+            }
+            .padding(.horizontal, 12)
+            .frame(height: 30)
+        }
+        .frame(height: 30)
+    }
+}
+
 struct SolapaWebView: View {
     let webView: WKWebView
     let onClose: () -> Void
 
+    @State private var showLogoutDialog = false
+    let cUsuario = AuthManager.shared.getUserCredentials().usuario ?? ""
+
     var body: some View {
-        ScrollView {
-            VStack(spacing: 5) {
-                if let logoCliente = ImagenesMovil.logoCliente {
-                    logoCliente
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 280, height: 150)
-                }
+        VStack(spacing: 0) {
+            CabeceraUsuarioView(cUsuario: cUsuario, showLogoutDialog: $showLogoutDialog)
 
-                HStack(alignment: .top, spacing: 30) {
-                    columnaIconos([
-                        ("Mis Citas", "mis_citas", BuildURLMovil.verCita()),
-                        ("Mis Datos", "mis_datos", BuildURLMovil.verMisDatos()),
-                        ("Póliza de seguros", "poliza_de_seguros", BuildURLMovil.verProtocoloYSeguridad()),
-                        ("Comunicar un parte", "comunicar_un_parte", BuildURLMovil.comunicarParte())
-                    ])
-                    columnaIconos([
-                        ("Mis informes", "mis_informes", BuildURLMovil.verInforme()),
-                        ("Mis accidentes deportivos", "mis_partes", BuildURLMovil.verParteMedico()),
-                        ("Tramitar alta voluntaria", "tramitar_alta_voluntaria", BuildURLMovil.pedirAltaVoluntaria()),
-                        ("Subir un documento", "subir_documento", BuildURLMovil.subirDocumento())
-                    ])
-                }
+            ScrollView {
+                VStack(spacing: 5) {
+                    if let logoCliente = ImagenesMovil.logoCliente {
+                        logoCliente
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 260, height: 130)
+                            .padding(.top, -30)
+                    }
 
-                if let logoDev = ImagenesMovil.logoDesarrolladora {
-                    logoDev
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 200, height: 75)
+                    HStack(alignment: .top, spacing: 30) {
+                        columnaIconos([
+                            ("Mis Citas", "mis_citas", BuildURLMovil.verCita()),
+                            ("Mis Datos", "mis_datos", BuildURLMovil.verMisDatos()),
+                            ("Póliza de seguros", "poliza_de_seguros", BuildURLMovil.verProtocoloYSeguridad()),
+                            ("Comunicar un parte", "comunicar_un_parte", BuildURLMovil.comunicarParte())
+                        ])
+                        columnaIconos([
+                            ("Mis informes", "mis_informes", BuildURLMovil.verInforme()),
+                            ("Mis accidentes deportivos", "mis_partes", BuildURLMovil.verParteMedico()),
+                            ("Tramitar alta voluntaria", "tramitar_alta_voluntaria", BuildURLMovil.pedirAltaVoluntaria()),
+                            ("Subir un documento", "subir_documento", BuildURLMovil.subirDocumento())
+                        ])
+                    }
+
+                    if let logoDev = ImagenesMovil.logoDesarrolladora {
+                        logoDev
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 200, height: 75)
+                            .padding(.top, -10)
+                    }
                 }
+                .padding()
             }
-            .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.white)
+            .zIndex(2)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.white)
-        .zIndex(2)
     }
 
     private func columnaIconos(_ iconos: [(String, String, String)]) -> some View {

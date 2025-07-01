@@ -115,6 +115,18 @@ struct PaginaPrincipalViewController: View {
                         tLogo: xEmpleado.tLogo,
                         cTipEmp: xEmpleado.cTipEmp
                     )
+                    print("✅ Credenciales guardadas:")
+                    print("usuario: \(xEmpleado.usuario)")
+                    print("password: \(xEmpleado.password)")
+                    print("xEmpleado: \(xEmpleado.xEmpleado)")
+                    print("lComGPS: \(xEmpleado.lComGPS)")
+                    print("lComIP: \(xEmpleado.lComIP)")
+                    print("lBotonesFichajeMovil: \(xEmpleado.lBotonesFichajeMovil)")
+                    print("xEntidad: \(xEmpleado.xEntidad)")
+                    print("sEmpleado: \(xEmpleado.sEmpleado)")
+                    print("tUrlCPP: \(xEmpleado.tUrlCPP)")
+                    print("tLogo: \(xEmpleado.tLogo)")
+                    print("cTipEmp: \(xEmpleado.cTipEmp)")
                     navegar = true
                 } else {
                     errorTexto = "Usuario o contraseña incorrectos"

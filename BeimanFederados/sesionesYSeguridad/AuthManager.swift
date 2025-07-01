@@ -9,15 +9,16 @@
 // y la validación remota a través de URLSession. Utilizado tanto para login manual como autologin.
 
 import Foundation
+import WebKit
 
 struct UserCredentials {
     let usuario: String
     let password: String
-    let xEmpleado: String?
+    let xEmpleado: String
     let lComGPS: String
     let lComIP: String
     let lBotonesFichajeMovil: String
-    let xEntidad: String?
+    let xEntidad: String
     let sEmpleado: String
     let tUrlCPP: String
     let tLogo: String
@@ -37,11 +38,11 @@ class AuthManager {
         return UserCredentials(
             usuario: defaults.string(forKey: "usuario") ?? "",
             password: defaults.string(forKey: "password") ?? "",
-            xEmpleado: defaults.string(forKey: "xEmpleado"),
+            xEmpleado: defaults.string(forKey: "xEmpleado") ?? "",
             lComGPS: defaults.string(forKey: "lComGPS") ?? "N",
             lComIP: defaults.string(forKey: "lComIP") ?? "N",
             lBotonesFichajeMovil: defaults.string(forKey: "lBotonesFichajeMovil") ?? "N",
-            xEntidad: defaults.string(forKey: "xEntidad"),
+            xEntidad: defaults.string(forKey: "xEntidad") ?? "",
             sEmpleado: defaults.string(forKey: "sEmpleado") ?? "",
             tUrlCPP: defaults.string(forKey: "tUrlCPP") ?? "",
             tLogo: defaults.string(forKey: "tLogo") ?? "",
@@ -53,11 +54,11 @@ class AuthManager {
     func saveUserCredentials(
         usuario: String,
         password: String,
-        xEmpleado: String?,
+        xEmpleado: String,
         lComGPS: String,
         lComIP: String,
         lBotonesFichajeMovil: String,
-        xEntidad: String?,
+        xEntidad: String,
         sEmpleado: String,
         tUrlCPP: String,
         tLogo: String,
@@ -85,6 +86,14 @@ class AuthManager {
             "tLogo", "cTipEmp"
         ]
         keys.forEach { defaults.removeObject(forKey: $0) }
+
+        // Elimina cookies y datos del WKWebView
+        let dataStore = WKWebsiteDataStore.default()
+        dataStore.fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
+            dataStore.removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), for: records) {
+                print("✅ Datos del WKWebView eliminados")
+            }
+        }
     }
 
     // Realiza una petición HTTP para autenticar al usuario y devuelve las credenciales completas si es exitoso
@@ -114,11 +123,11 @@ class AuthManager {
                 let credentials = UserCredentials(
                     usuario: usuario,
                     password: password,
-                    xEmpleado: json["xEmpleado"] as? String,
+                    xEmpleado: String(describing: json["xEmpleado"] ?? ""),
                     lComGPS: json["lComGPS"] as? String ?? "S",
                     lComIP: json["lComIP"] as? String ?? "S",
                     lBotonesFichajeMovil: json["lBotonesFichajeMovil"] as? String ?? "S",
-                    xEntidad: json["xEntidad"] as? String,
+                    xEntidad: String(describing: json["xEntidad"] ?? ""),
                     sEmpleado: json["sEmpleado"] as? String ?? "",
                     tUrlCPP: json["tUrlCPP"] as? String ?? "",
                     tLogo: json["tLogo"] as? String ?? "",

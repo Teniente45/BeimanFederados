@@ -11,7 +11,7 @@ import SwiftUI
 struct BeimanFederadosApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView() // o PaginaPrincipalViewController() si ya has renombrado la vista principal
+            PaginaPrincipalViewController()
         }
     }
 }

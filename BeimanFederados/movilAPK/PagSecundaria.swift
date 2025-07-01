@@ -20,100 +20,108 @@ struct PaginaSecundariaView: View {
     @State private var mostrarSolapa = true
     @State private var webViewReferencia = WKWebView()
     @State private var showLogoutDialog = false
-    let cUsuario: String = AuthManager.shared.getUserCredentials().usuario ?? ""
+    @State private var navegar = false
+    @State private var xEmpleado: String = ""
 
     var body: some View {
-        VStack(spacing: 0) {
-            ZStack {
-                Color(red: 0xE2 / 255.0, green: 0xE4 / 255.0, blue: 0xE5 / 255.0)
+        NavigationStack {
+            VStack(spacing: 0) {
+                ZStack {
+                    Color(red: 0xE2 / 255.0, green: 0xE4 / 255.0, blue: 0xE5 / 255.0)
 
-                HStack {
-                    // Sección izquierda: avatar + nombre
-                    HStack(spacing: 8) {
-                        Image("cliente32")
-                            .resizable()
-                            .frame(width: 24, height: 24)
+                    HStack {
+                        // Sección izquierda: avatar + nombre
+                        HStack(spacing: 8) {
+                            Image("cliente32")
+                                .resizable()
+                                .frame(width: 24, height: 24)
 
-                        Text(cUsuario.uppercased())
-                            .foregroundColor(Color(red: 0.46, green: 0.60, blue: 0.71)) // Color(0xFF7599B6)
-                            .font(.system(size: 14, weight: .medium))
+                            Text((AuthManager.shared.getUserCredentials().usuario ?? "").uppercased())
+                                .foregroundColor(Color(red: 0.46, green: 0.60, blue: 0.71)) // Color(0xFF7599B6)
+                                .font(.system(size: 14, weight: .medium))
+                        }
+
+                        Spacer()
+
+                        // Sección derecha: botón cerrar sesión
+                        Button(action: {
+                            showLogoutDialog = true
+                        }) {
+                            Image("ic_cerrar32")
+                                .resizable()
+                                .frame(width: 24, height: 24)
+                        }
                     }
-
-                    Spacer()
-
-                    // Sección derecha: botón cerrar sesión
-                    Button(action: {
-                        showLogoutDialog = true
-                    }) {
-                        Image("ic_cerrar32")
-                            .resizable()
-                            .frame(width: 24, height: 24)
-                    }
+                    .padding(.horizontal, 12)
+                    .frame(height: 30)
                 }
-                .padding(.horizontal, 12)
                 .frame(height: 30)
+
+                WebViewWrapper(
+                    reloadTrigger: webViewReloadTrigger,
+                    mostrarLogin: $mostrarLogin,
+                    mostrandoReconectando: $mostrandoReconectando,
+                    webView: $webViewReferencia
+                )
+                .frame(maxHeight: .infinity)
+                .padding(.bottom, 56)
             }
-            .frame(height: 30)
-
-            WebViewWrapper(
-                reloadTrigger: webViewReloadTrigger,
-                mostrarLogin: $mostrarLogin,
-                mostrandoReconectando: $mostrandoReconectando,
-                webView: $webViewReferencia
-            )
-            .frame(maxHeight: .infinity)
-            .padding(.bottom, 56)
-        }
-        .alert(isPresented: $showLogoutDialog) {
-            Alert(
-                title: Text("¿Seguro que quieres salir?"),
-                primaryButton: .destructive(Text("Sí")) {
-                    AuthManager.shared.clearAllUserData()
-                    mostrarLogin = true
-                },
-                secondaryButton: .cancel(Text("No"))
-            )
-        }
-        .zIndex(0)
-        .background(Color.white)
-        .overlay(
-            Group {
-                if mostrarSolapa {
-                    SolapaWebView(
-                        webView: webViewReferencia,
-                        onClose: { mostrarSolapa = false },
-                        mostrarLogin: $mostrarLogin
-                    )
-                    .zIndex(2)
-                }
-
-                VStack {
-                    Spacer()
-                    Button(action: {
-                        mostrarSolapa = true
-                    }) {
-                        Image("menu_opciones")
-                            .resizable()
-                            .frame(width: 40, height: 40)
-                            .padding()
+            .alert(isPresented: $showLogoutDialog) {
+                Alert(
+                    title: Text("¿Quieres cerrar la sesión?"),
+                    primaryButton: .destructive(Text("Sí")) {
+                        AuthManager.shared.clearAllUserData()
+                        navegar = true
+                    },
+                    secondaryButton: .cancel(Text("No"))
+                )
+            }
+            .zIndex(0)
+            .background(Color.white)
+            .overlay(
+                Group {
+                    if mostrarSolapa {
+                        SolapaWebView(
+                            webView: webViewReferencia,
+                            onClose: { mostrarSolapa = false },
+                            mostrarLogin: $mostrarLogin
+                        )
+                        .zIndex(2)
                     }
-                    .background(Color.white)
-                    .clipShape(Circle())
-                    .shadow(radius: 4)
-                    .padding(.bottom, 20)
+
+                    VStack {
+                        Spacer()
+                        Button(action: {
+                            mostrarSolapa = true
+                        }) {
+                            Image("menu_opciones")
+                                .resizable()
+                                .frame(width: 40, height: 40)
+                                .padding()
+                        }
+                        .background(Color.white)
+                        .clipShape(Circle())
+                        .shadow(radius: 4)
+                        .padding(.bottom, 20)
+                    }
+                    .zIndex(1)
                 }
-                .zIndex(1)
+            )
+            .onAppear {
+                print("✅ PaginaSecundariaView - onAppear ejecutado")
+                xEmpleado = AuthManager.shared.getUserCredentials().xEmpleado ?? ""
+                print("🧾 xEmpleado recuperado: \(xEmpleado)")
+                iniciarTimerDeSesion()
             }
-        )
-        .onAppear {
-            print("✅ PaginaSecundariaView - onAppear ejecutado")
-            iniciarTimerDeSesion()
+            .onDisappear {
+                timer?.invalidate()
+                print("🔄 PaginaSecundariaView - onDisappear: temporizador detenido")
+            }
+            .navigationBarBackButtonHidden(true)
+            .navigationDestination(isPresented: $navegar) {
+                PaginaPrincipalViewController()
+            }
         }
-        .onDisappear {
-            timer?.invalidate()
-            print("🔄 PaginaSecundariaView - onDisappear: temporizador detenido")
-        }
-        .navigationBarBackButtonHidden(true)
     }
 
     // Inicia un temporizador que cierra la sesión tras el tiempo definido

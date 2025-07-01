@@ -9,9 +9,8 @@ import SwiftUI
 import WebKit
 
 struct CabeceraUsuarioView: View {
-    let cUsuario: String
     @Binding var showLogoutDialog: Bool
-    @Binding var mostrarLogin: Bool
+    @Binding var navegar: Bool
 
     var body: some View {
         ZStack {
@@ -23,7 +22,7 @@ struct CabeceraUsuarioView: View {
                         .resizable()
                         .frame(width: 24, height: 24)
 
-                    Text(cUsuario.uppercased())
+                    Text((AuthManager.shared.getUserCredentials().usuario ?? "").uppercased())
                         .foregroundColor(Color(red: 0.46, green: 0.60, blue: 0.71))
                         .font(.system(size: 14, weight: .medium))
                 }
@@ -44,10 +43,10 @@ struct CabeceraUsuarioView: View {
         .frame(height: 30)
         .alert(isPresented: $showLogoutDialog) {
             Alert(
-                title: Text("¿Seguro que quieres salir?"),
+                title: Text("¿Quieres cerrar la sesión?"),
                 primaryButton: .destructive(Text("Sí")) {
                     AuthManager.shared.clearAllUserData()
-                    mostrarLogin = true
+                    navegar = true
                 },
                 secondaryButton: .cancel(Text("No"))
             )
@@ -61,11 +60,12 @@ struct SolapaWebView: View {
     @Binding var mostrarLogin: Bool
 
     @State private var showLogoutDialog = false
-    let cUsuario = AuthManager.shared.getUserCredentials().usuario ?? ""
+    @State private var navegar = false
+    let cUsuario = AuthManager.shared.getUserCredentials().usuario
 
     var body: some View {
         VStack(spacing: 0) {
-            CabeceraUsuarioView(cUsuario: cUsuario, showLogoutDialog: $showLogoutDialog, mostrarLogin: $mostrarLogin)
+            CabeceraUsuarioView(showLogoutDialog: $showLogoutDialog, navegar: $navegar)
 
             ScrollView {
                 VStack(spacing: 5) {
@@ -104,6 +104,9 @@ struct SolapaWebView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.white)
             .zIndex(2)
+        }
+        .navigationDestination(isPresented: $navegar) {
+            PaginaPrincipalViewController()
         }
     }
 

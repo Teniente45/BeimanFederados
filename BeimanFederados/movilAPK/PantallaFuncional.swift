@@ -11,6 +11,7 @@ import WebKit
 struct CabeceraUsuarioView: View {
     let cUsuario: String
     @Binding var showLogoutDialog: Bool
+    @Binding var mostrarLogin: Bool
 
     var body: some View {
         ZStack {
@@ -41,19 +42,30 @@ struct CabeceraUsuarioView: View {
             .frame(height: 30)
         }
         .frame(height: 30)
+        .alert(isPresented: $showLogoutDialog) {
+            Alert(
+                title: Text("¿Seguro que quieres salir?"),
+                primaryButton: .destructive(Text("Sí")) {
+                    AuthManager.shared.clearAllUserData()
+                    mostrarLogin = true
+                },
+                secondaryButton: .cancel(Text("No"))
+            )
+        }
     }
 }
 
 struct SolapaWebView: View {
     let webView: WKWebView
     let onClose: () -> Void
+    @Binding var mostrarLogin: Bool
 
     @State private var showLogoutDialog = false
     let cUsuario = AuthManager.shared.getUserCredentials().usuario ?? ""
 
     var body: some View {
         VStack(spacing: 0) {
-            CabeceraUsuarioView(cUsuario: cUsuario, showLogoutDialog: $showLogoutDialog)
+            CabeceraUsuarioView(cUsuario: cUsuario, showLogoutDialog: $showLogoutDialog, mostrarLogin: $mostrarLogin)
 
             ScrollView {
                 VStack(spacing: 5) {
@@ -65,7 +77,7 @@ struct SolapaWebView: View {
                             .padding(.top, -30)
                     }
 
-                    HStack(alignment: .top, spacing: 30) {
+                    HStack(alignment: .top, spacing: 80) {
                         columnaIconos([
                             ("Mis Citas", "mis_citas", BuildURLMovil.verCita()),
                             ("Mis Datos", "mis_datos", BuildURLMovil.verMisDatos()),
@@ -85,7 +97,6 @@ struct SolapaWebView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 200, height: 75)
-                            .padding(.top, -10)
                     }
                 }
                 .padding()
@@ -97,8 +108,8 @@ struct SolapaWebView: View {
     }
 
     private func columnaIconos(_ iconos: [(String, String, String)]) -> some View {
-        VStack(spacing: 20) {
-            ForEach(iconos, id: \.2) { item in
+        VStack(spacing: 28) {
+            ForEach(iconos, id: \.0) { item in
                 botonNavegador(label: item.0, imageName: item.1, urlString: item.2)
             }
         }
@@ -119,7 +130,9 @@ struct SolapaWebView: View {
                     .font(.system(size: 17, weight: .medium))
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color(red: 6/255, green: 82/255, blue: 161/255))
-                    .frame(width: 96)
+                    .frame(width: 96, height: 66)
+                    .lineLimit(3)
+                    .fixedSize(horizontal: false, vertical: false)
             }
             .frame(width: 100, height: 130)
         }

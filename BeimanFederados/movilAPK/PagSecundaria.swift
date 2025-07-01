@@ -64,6 +64,16 @@ struct PaginaSecundariaView: View {
             .frame(maxHeight: .infinity)
             .padding(.bottom, 56)
         }
+        .alert(isPresented: $showLogoutDialog) {
+            Alert(
+                title: Text("¿Seguro que quieres salir?"),
+                primaryButton: .destructive(Text("Sí")) {
+                    AuthManager.shared.clearAllUserData()
+                    mostrarLogin = true
+                },
+                secondaryButton: .cancel(Text("No"))
+            )
+        }
         .zIndex(0)
         .background(Color.white)
         .overlay(
@@ -71,7 +81,8 @@ struct PaginaSecundariaView: View {
                 if mostrarSolapa {
                     SolapaWebView(
                         webView: webViewReferencia,
-                        onClose: { mostrarSolapa = false }
+                        onClose: { mostrarSolapa = false },
+                        mostrarLogin: $mostrarLogin
                     )
                     .zIndex(2)
                 }
@@ -81,7 +92,7 @@ struct PaginaSecundariaView: View {
                     Button(action: {
                         mostrarSolapa = true
                     }) {
-                        Image(systemName: "square.grid.2x2.fill")
+                        Image("menu_opciones")
                             .resizable()
                             .frame(width: 40, height: 40)
                             .padding()
